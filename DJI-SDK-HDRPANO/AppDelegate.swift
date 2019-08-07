@@ -8,14 +8,19 @@
 
 import UIKit
 
+let useBridge = false
+let debugIP = "192.168.1.122"
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
+    open var productCommManager = ProductCommunicationManager()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.productCommManager.registerWithProduct()
         return true
     }
 

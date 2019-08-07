@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import DJIUXSDK
 
-class ViewController: UIViewController {
+class ViewController: DUXDefaultLayoutViewController {
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent;
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
