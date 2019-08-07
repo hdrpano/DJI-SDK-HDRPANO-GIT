@@ -65,6 +65,8 @@ I have added a function to reset AFC mode to simple auto exposure mode. This fun
 
     Hdrpano.setFocusModeAuto()
 
+[![Watch the video](https://img.youtube.com/vi/XwM7Vq1Erjc/maxresdefault.jpg)](https://youtu.be/XwM7Vq1Erjc)
+
 ## Installation
 **1.** Install CocoaPods
 
