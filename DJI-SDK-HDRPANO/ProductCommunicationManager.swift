@@ -8,6 +8,7 @@
 
 import UIKit
 import DJISDK
+import Hdrpano
 
 let ProductCommunicationManagerStateDidChange = "ProductCommunicationManagerStateDidChange"
 
@@ -45,10 +46,10 @@ class ProductCommunicationManager: NSObject, DJISDKManagerDelegate, DJIFlightCon
                 return
         }
         DJISDKManager.registerApp(with: self)
-        /* DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        /*DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             NSLog("Registering Product with registration ID: \(appKey)")
             DJISDKManager.registerApp(with: self)
-        } */
+        }*/
     }
     
     //MARK: - DJISDKManagerDelegate
@@ -77,6 +78,20 @@ class ProductCommunicationManager: NSObject, DJISDKManagerDelegate, DJIFlightCon
             NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: ProductCommunicationManagerStateDidChange)))
             NSLog("Connection to new product succeeded!")
             self.connectedProduct = product
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                Hdrpano.setFocusModeAuto()          // Reset AFC to .auto for Phantom and Mavics, AFC causes troubles for mission shootings
+                Hdrpano.setGimbalAutoLock()         // Set gimbal to auto lock for Inspires
+                Hdrpano.setYawSimultaneousFollow()  // Set gimbal to simultaneous follow for Inspires
+                Hdrpano.setGimbalExtension()        // Set the gimbal to max extension
+                Hdrpano.setMaxHeight(Height: 250)   // Set max flight height UAF, Skyguide rules
+                Hdrpano.setMaxRadius(Radius: 1000)  // Set max distance to UAF, Skyguid rules
+                Hdrpano.setLowBattery(Low: 30)      // Set low battery to 30%
+                Hdrpano.setFileFormat(fileFormat: .JPEG)    // Set file format
+                Hdrpano.setShootMode(shootMode: .single)    // Set shooting mode
+                Hdrpano.setISO(ISO: .ISO100)        // Set ISO to max resolution
+                Hdrpano.setOptimumRatio()           // Set the optimum ccd ratio
+            }
         }
     }
     
