@@ -11,7 +11,7 @@ import DJISDK
 
 let ProductCommunicationManagerStateDidChange = "ProductCommunicationManagerStateDidChange"
 
-class ProductCommunicationManager: NSObject, DJISDKManagerDelegate {
+class ProductCommunicationManager: NSObject, DJISDKManagerDelegate, DJIFlightControllerDelegate {
     open weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
     open var connectedProduct: DJIBaseProduct!
     
@@ -44,10 +44,11 @@ class ProductCommunicationManager: NSObject, DJISDKManagerDelegate {
                 print("\n<<<ERROR: Please add DJI App Key in Info.plist after registering as developer>>>\n")
                 return
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DJISDKManager.registerApp(with: self)
+        /* DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             NSLog("Registering Product with registration ID: \(appKey)")
             DJISDKManager.registerApp(with: self)
-        }
+        } */
     }
     
     //MARK: - DJISDKManagerDelegate
