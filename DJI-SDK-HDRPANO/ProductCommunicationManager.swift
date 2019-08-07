@@ -8,10 +8,11 @@
 
 import UIKit
 import DJISDK
+import Hdrpano
 
 let ProductCommunicationManagerStateDidChange = "ProductCommunicationManagerStateDidChange"
 
-class ProductCommunicationManager: NSObject, DJISDKManagerDelegate {
+class ProductCommunicationManager: NSObject, DJISDKManagerDelegate, DJIFlightControllerDelegate {
     open weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
     open var connectedProduct: DJIBaseProduct!
     
@@ -44,10 +45,11 @@ class ProductCommunicationManager: NSObject, DJISDKManagerDelegate {
                 print("\n<<<ERROR: Please add DJI App Key in Info.plist after registering as developer>>>\n")
                 return
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DJISDKManager.registerApp(with: self)
+        /*DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             NSLog("Registering Product with registration ID: \(appKey)")
             DJISDKManager.registerApp(with: self)
-        }
+        }*/
     }
     
     //MARK: - DJISDKManagerDelegate
@@ -76,6 +78,20 @@ class ProductCommunicationManager: NSObject, DJISDKManagerDelegate {
             NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: ProductCommunicationManagerStateDidChange)))
             NSLog("Connection to new product succeeded!")
             self.connectedProduct = product
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                Hdrpano.setFocusModeAuto()          // Reset AFC to .auto for Phantom and Mavics, AFC causes troubles for mission shootings
+                Hdrpano.setGimbalAutoLock()         // Set gimbal to auto lock for Inspires
+                Hdrpano.setYawSimultaneousFollow()  // Set gimbal to simultaneous follow for Inspires
+                Hdrpano.setGimbalExtension()        // Set the gimbal to max extension
+                Hdrpano.setMaxHeight(Height: 250)   // Set max flight height UAF, Skyguide rules
+                Hdrpano.setMaxRadius(Radius: 1000)  // Set max distance to UAF, Skyguid rules
+                Hdrpano.setLowBattery(Low: 30)      // Set low battery to 30%
+                Hdrpano.setFileFormat(fileFormat: .JPEG)    // Set file format
+                Hdrpano.setShootMode(shootMode: .single)    // Set shooting mode
+                Hdrpano.setISO(ISO: .ISO100)        // Set ISO to max resolution
+                Hdrpano.setOptimumRatio()           // Set the optimum ccd ratio
+            }
         }
     }
     

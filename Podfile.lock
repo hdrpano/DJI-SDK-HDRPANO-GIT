@@ -1,0 +1,28 @@
+PODS:
+  - DJI-SDK-iOS (4.10)
+  - DJI-UXSDK-iOS (4.10)
+  - DJIWidget (1.5)
+  - Hdrpano (1.1.0)
+
+DEPENDENCIES:
+  - DJI-SDK-iOS (~> 4.10)
+  - DJI-UXSDK-iOS (~> 4.10)
+  - DJIWidget (~> 1.5)
+  - Hdrpano (~> 1.1.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - DJI-SDK-iOS
+    - DJI-UXSDK-iOS
+    - DJIWidget
+    - Hdrpano
+
+SPEC CHECKSUMS:
+  DJI-SDK-iOS: e6ed9165a8b6ec78821ac42d41bd6b1d6a12ed57
+  DJI-UXSDK-iOS: de0c89815ab860b89be346ae622284d6f8a0da45
+  DJIWidget: 2fcc151ecbd1326cc6da0486701782f971fe5653
+  Hdrpano: 178237717945b18faf47543f25155747153b8512
+
+PODFILE CHECKSUM: 1192507b5c2ccd633ecc87ca869be9390095962a
+
+COCOAPODS: 1.7.5
