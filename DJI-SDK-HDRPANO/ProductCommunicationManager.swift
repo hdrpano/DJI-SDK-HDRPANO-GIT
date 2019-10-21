@@ -13,6 +13,10 @@ import Hdrpano
 let ProductCommunicationManagerStateDidChange = "ProductCommunicationManagerStateDidChange"
 
 class ProductCommunicationManager: NSObject, DJISDKManagerDelegate, DJIFlightControllerDelegate {
+    func didUpdateDatabaseDownloadProgress(_ progress: Progress) {
+         NSLog("Download database : \(progress.completedUnitCount), \(progress.totalUnitCount)")
+    }
+    
     open weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
     open var connectedProduct: DJIBaseProduct!
     
