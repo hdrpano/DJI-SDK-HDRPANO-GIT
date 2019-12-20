@@ -92,8 +92,6 @@ class ViewController: DUXDefaultLayoutViewController {
             case .stopped:
                 print("Mission stopped successfully \(String(describing: elements))")
                 Hdrpano.stopAdvancedVirtualStick()
-                Hdrpano.resetGimbal()
-                Hdrpano.setGimbalMode(gimbalMode: .yawFollow)
             case .stopError:
                 print("Stop error \(String(describing: elements))")
             case .finished:
@@ -101,8 +99,6 @@ class ViewController: DUXDefaultLayoutViewController {
                 if elements == nil {
                     print("Mission finished")
                     Hdrpano.stopAdvancedVirtualStick()
-                    Hdrpano.resetGimbal()
-                    Hdrpano.setGimbalMode(gimbalMode: .yawFollow)
                 }
             default:
                 break
