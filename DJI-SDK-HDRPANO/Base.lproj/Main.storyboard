@@ -29,16 +29,29 @@
                                     <action selector="missionStartAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xKx-d0-Kqy"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ttn-Yi-cEt">
+                                <rect key="frame" x="516" y="283" width="32" height="30"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Stop">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopMissionAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vuk-O0-nFE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="DIM-hz-u7G" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9eC-2p-CdF"/>
+                            <constraint firstItem="Ttn-Yi-cEt" firstAttribute="leading" secondItem="DIM-hz-u7G" secondAttribute="trailing" constant="8" id="OFm-A1-LVv"/>
+                            <constraint firstItem="Ttn-Yi-cEt" firstAttribute="bottom" secondItem="DIM-hz-u7G" secondAttribute="bottom" id="tk2-Oo-CUG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DIM-hz-u7G" secondAttribute="bottom" constant="80" id="zDu-8r-0eF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="missionStart" destination="DIM-hz-u7G" id="H4n-MB-r8s"/>
+                        <outlet property="missionStop" destination="Ttn-Yi-cEt" id="NYa-9q-62b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

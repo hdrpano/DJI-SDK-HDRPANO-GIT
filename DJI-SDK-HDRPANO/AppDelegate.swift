@@ -8,7 +8,7 @@
 
 import UIKit
 
-let useBridge = true
+let useBridge = false
 let debugIP = "192.168.1.122"
 
 @UIApplicationMain
