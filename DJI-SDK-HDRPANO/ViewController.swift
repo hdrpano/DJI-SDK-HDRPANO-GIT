@@ -4,6 +4,7 @@
 //
 //  Created by Kilian Eisenegger on 07.08.19.
 //  Copyright © 2019 Kilian Eisenegger. All rights reserved.
+//  Lesson 2
 //
 
 import UIKit
@@ -22,7 +23,7 @@ class ViewController: DUXDefaultLayoutViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.missionStop.isHidden = true
-        // Do any additional setup after loading the view.
+        
         self.contentViewController?.view.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
         self.contentViewController?.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
         self.contentViewController?.view.setNeedsDisplay()
@@ -30,7 +31,7 @@ class ViewController: DUXDefaultLayoutViewController {
         self.addKeyListener()
     }
     
-    @IBAction func missionStartAction(_ sender: Any) {
+    @IBAction func missionStartAction(_ sender: UIButton) {
         if let isRunning = DJISDKManager.missionControl()?.isTimelineRunning, isRunning == false {
             Hdrpano.startAdvancedVirtualStick()
             self.shootTLPano()

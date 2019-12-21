@@ -72,13 +72,13 @@
 		397A26AF22FAABA300F81C60 /* DJI-SDK-HDRPANO */ = {
 			isa = PBXGroup;
 			children = (
+				397A26B722FAABA400F81C60 /* Assets.xcassets */,
+				397A26B422FAABA300F81C60 /* Main.storyboard */,
+				397A26B922FAABA400F81C60 /* LaunchScreen.storyboard */,
 				397A26B022FAABA300F81C60 /* AppDelegate.swift */,
 				397A26B222FAABA300F81C60 /* ViewController.swift */,
-				397A26B422FAABA300F81C60 /* Main.storyboard */,
-				397A26B722FAABA400F81C60 /* Assets.xcassets */,
-				397A26B922FAABA400F81C60 /* LaunchScreen.storyboard */,
-				397A26BC22FAABA400F81C60 /* Info.plist */,
 				397A26CA22FAC25E00F81C60 /* ProductCommunicationManager.swift */,
+				397A26BC22FAABA400F81C60 /* Info.plist */,
 			);
 			path = "DJI-SDK-HDRPANO";
 			sourceTree = "<group>";
