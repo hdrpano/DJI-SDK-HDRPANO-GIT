@@ -49,8 +49,8 @@ class ViewController: DUXDefaultLayoutViewController {
         if let isRunning = DJISDKManager.missionControl()?.isTimelineRunning, isRunning == true {
             DJISDKManager.missionControl()?.stopTimeline()
             DJISDKManager.missionControl()?.unscheduleEverything()
+            Hdrpano.stopAdvancedVirtualStick()
         }
-        Hdrpano.stopAdvancedVirtualStick()
     }
     
     func shootTLPano() {
@@ -90,25 +90,26 @@ class ViewController: DUXDefaultLayoutViewController {
             
             switch event {
             case .started:
-                print("Timeline Element \(elements!) Marker \(schedule!)")
+                print("Timeline Element \(String(describing: elements)) Marker \(schedule!)")
             case .startError:
                 print("Start error")
             case .paused:
-                print("Paused \(elements!)")
+                print("Paused \(String(describing: elements))")
             case .pauseError:
-                print("Pause error \(elements!)")
+                print("Pause error \(String(describing: elements))")
             case .resumed:
-                print("Resumed \(elements!)")
+                print("Resumed \(String(describing: elements))")
             case .resumeError:
-                print("Resume error \(elements!)")
+                print("Resume error \(String(describing: elements))")
             case .stopped:
-                print("Mission stopped successfully \(elements!)")
-                Hdrpano.stopAdvancedVirtualStick()
+                print("Mission stopped successfully \(String(describing: elements))")
             case .stopError:
-                print("Stop error \(elements!)")
+                print("Stop error \(String(describing: elements))")
             case .finished:
-                print("Finished \(elements!))")
-                self.missionStart.setTitle("Running" + String(Int(schedule!)/2), for: .normal)
+                print("Finished \(String(describing: elements))")
+                if schedule != nil {
+                    self.missionStart.setTitle("Running " + String(Int(schedule!)/2), for: .normal)
+                }
                 if elements == nil {
                     print("Mission finished")
                     Hdrpano.stopAdvancedVirtualStick()
