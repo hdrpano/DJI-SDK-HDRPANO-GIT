@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <device id="retina6_5" orientation="landscape" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIM-hz-u7G">
-                                <rect key="frame" x="388" y="283" width="120" height="30"/>
+                                <rect key="frame" x="388" y="192" width="120" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="Srf-vs-w8k"/>
@@ -30,7 +30,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ttn-Yi-cEt">
-                                <rect key="frame" x="516" y="283" width="32" height="30"/>
+                                <rect key="frame" x="516" y="192" width="32" height="30"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Stop">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -39,19 +39,61 @@
                                     <action selector="stopMissionAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vuk-O0-nFE"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VUT-Fc-B40" customClass="GimbalViewController" customModule="DJI_SDK_HDRPANO" customModuleProvider="target">
+                                <rect key="frame" x="722" y="132" width="50" height="150"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Ugd-0h-hUY"/>
+                                    <constraint firstAttribute="height" constant="150" id="nvp-rH-y0j"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJg-Xe-sVB" customClass="DUXExposureFocusSwitchWidget">
+                                <rect key="frame" x="767" y="50" width="35" height="35"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="6ia-v2-fhp"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="VlP-xD-soJ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="ezG-Jy-tQM"/>
+                                    <constraint firstAttribute="height" constant="35" id="ps0-P4-rGz"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SDK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AmI-Hv-vGS">
+                                <rect key="frame" x="64" y="8" width="30" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ac-If-sww" customClass="DUXCameraConfigInfoWidget">
+                                <rect key="frame" x="544" y="52.666666666666657" width="215" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1NF-L5-QRR"/>
+                                    <constraint firstAttribute="width" constant="215" placeholder="YES" id="ng8-0r-XoT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eJg-Xe-sVB" secondAttribute="trailing" constant="50" id="0WD-FH-7Gn"/>
                             <constraint firstItem="DIM-hz-u7G" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9eC-2p-CdF"/>
+                            <constraint firstItem="eJg-Xe-sVB" firstAttribute="centerY" secondItem="9ac-If-sww" secondAttribute="centerY" id="D5l-nI-Jj0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VUT-Fc-B40" secondAttribute="trailing" constant="80" id="Fec-mb-kQo"/>
+                            <constraint firstItem="eJg-Xe-sVB" firstAttribute="leading" secondItem="9ac-If-sww" secondAttribute="trailing" constant="8" id="Nq5-VW-fuP"/>
                             <constraint firstItem="Ttn-Yi-cEt" firstAttribute="leading" secondItem="DIM-hz-u7G" secondAttribute="trailing" constant="8" id="OFm-A1-LVv"/>
+                            <constraint firstItem="AmI-Hv-vGS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="W8H-Qg-aM4"/>
+                            <constraint firstItem="VUT-Fc-B40" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gZ9-XY-68y"/>
+                            <constraint firstItem="eJg-Xe-sVB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="oz5-mU-ooA"/>
+                            <constraint firstItem="AmI-Hv-vGS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pMf-Ro-mBl"/>
+                            <constraint firstItem="DIM-hz-u7G" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rIQ-2o-WbQ"/>
                             <constraint firstItem="Ttn-Yi-cEt" firstAttribute="bottom" secondItem="DIM-hz-u7G" secondAttribute="bottom" id="tk2-Oo-CUG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DIM-hz-u7G" secondAttribute="bottom" constant="80" id="zDu-8r-0eF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="gimbalPitch" destination="VUT-Fc-B40" id="dFh-V0-XAD"/>
                         <outlet property="missionStart" destination="DIM-hz-u7G" id="H4n-MB-r8s"/>
                         <outlet property="missionStop" destination="Ttn-Yi-cEt" id="NYa-9q-62b"/>
+                        <outlet property="panoSettingsInfo" destination="AmI-Hv-vGS" id="AL4-W8-OYW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

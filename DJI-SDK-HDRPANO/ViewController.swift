@@ -4,7 +4,7 @@
 //
 //  Created by Kilian Eisenegger on 07.08.19.
 //  Copyright © 2019 Kilian Eisenegger. All rights reserved.
-//  Lesson 2
+//  Lesson 3
 //
 
 import UIKit
@@ -15,6 +15,8 @@ import Hdrpano
 class ViewController: DUXDefaultLayoutViewController {
     @IBOutlet weak var missionStart: UIButton!
     @IBOutlet weak var missionStop: UIButton!
+    @IBOutlet weak var gimbalPitch: GimbalViewController!   // There is an AircraftYawController too
+    @IBOutlet weak var panoSettingsInfo: UILabel!           // This will indicate rows and columns
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent;
@@ -23,12 +25,15 @@ class ViewController: DUXDefaultLayoutViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.missionStop.isHidden = true
+        self.panoSettingsInfo.isHidden = true
         
         self.contentViewController?.view.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
         self.contentViewController?.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
         self.contentViewController?.view.setNeedsDisplay()
         
         self.addKeyListener()
+        
+        self.gimbalPitch.pitch = 40 // This sets the graphical gimbal view to 0
     }
     
     @IBAction func missionStartAction(_ sender: UIButton) {
@@ -36,6 +41,7 @@ class ViewController: DUXDefaultLayoutViewController {
             Hdrpano.startAdvancedVirtualStick()
             self.shootTLPano()
             self.missionStop.isHidden = false
+            self.panoSettingsInfo.isHidden = false
         } else {
             if let isPaused = DJISDKManager.missionControl()?.isTimelinePaused, isPaused == false {
                 DJISDKManager.missionControl()?.pauseTimeline()
@@ -58,9 +64,10 @@ class ViewController: DUXDefaultLayoutViewController {
         let product = DJISDKManager.product()
         if let modelName = product?.model {
             let panoSettings = Hdrpano.getSettings(modelName: modelName)
+            self.panoSettingsInfo.text = String(panoSettings[1]) + "x" + String(panoSettings[0])
             var grid: [[Float]]
-                grid = Hdrpano.createGridSpheric(cols: panoSettings[1], rows: panoSettings[0],
-                                                 maxGimb: Float(panoSettings[3]), maxNadir: Float(panoSettings[4]), Nb: 0)
+            grid = Hdrpano.createGridSpheric(cols: panoSettings[1], rows: panoSettings[0],
+                                             maxGimb: Float(panoSettings[3]), maxNadir: Float(panoSettings[4]), Nb: 0)
             if Hdrpano.getSDPhotoCount() > grid.count { // Enough space on the sd card ?
                 DJISDKManager.missionControl()?.unscheduleEverything()
                 let error = DJISDKManager.missionControl()?.scheduleElements(Hdrpano.shootTLPano(grid: grid))
@@ -79,6 +86,7 @@ class ViewController: DUXDefaultLayoutViewController {
     }
     
     func addKeyListener() {
+        // Timeline in Progress Listener
         DJISDKManager.missionControl()?.addListener(self, toTimelineProgressWith: {(event: DJIMissionControlTimelineEvent,
             element: DJIMissionControlTimelineElement?, error: Error?, info: Any?) in
             
@@ -115,12 +123,28 @@ class ViewController: DUXDefaultLayoutViewController {
                     print("Mission finished")
                     Hdrpano.stopAdvancedVirtualStick()
                     self.missionStop.isHidden = true
+                    self.panoSettingsInfo.isHidden = true
                     self.missionStart.setTitle("Start Mission", for: .normal)
                 }
             default:
                 break
             }
         })
+        
+        // GimbalAttitude Listener
+        if let gimbalAttitudeKey = DJIGimbalKey(param: DJIGimbalParamAttitudeInDegrees) {
+            DJISDKManager.keyManager()?.startListeningForChanges(on: gimbalAttitudeKey, withListener: self)
+            { [unowned self] (oldValue: DJIKeyedValue?, newValue: DJIKeyedValue?) in
+                
+                if newValue != nil {
+                    var gimbalAttitude = DJIGimbalAttitude() // Float in degrees
+                    
+                    let nsvalue = newValue!.value as! NSValue
+                    nsvalue.getValue(&gimbalAttitude)
+                    self.gimbalPitch.pitch = 40 - Double(gimbalAttitude.pitch)
+                }
+            }
+        }
     }
 }
 
