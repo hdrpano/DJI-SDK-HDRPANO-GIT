@@ -1,4 +1,4 @@
-![swift 5.0](https://img.shields.io/badge/swift-5.0-green.svg) ![platform iOS](https://img.shields.io/badge/platform-iOS-lightgrey.svg) ![pod 1.1.5](https://img.shields.io/badge/pod-1.1.5-blue.svg) ![DJI SDK 4.11](https://img.shields.io/badge/DJI%20SDK-4.11-blue.svg) ![DJI DUX SDK 4.11](https://img.shields.io/badge/DJI%20DUX%20SDK-4.11-blue.svg) ![license MIT](https://img.shields.io/badge/license-MIT-green.svg) ![Aircrafts](https://img.shields.io/badge/Aircrafts-Inspire%20%7C%20Matrice%20%7C%20Mavic%20%7C%20Phantom%20%7C%20Spark-lightgrey.svg)
+![swift 5.0](https://img.shields.io/badge/swift-5.0-green.svg) ![platform iOS](https://img.shields.io/badge/platform-iOS-lightgrey.svg) ![pod 1.1.8](https://img.shields.io/badge/pod-1.1.8-blue.svg) ![DJI SDK 4.11](https://img.shields.io/badge/DJI%20SDK-4.11-blue.svg) ![DJI DUX SDK 4.11](https://img.shields.io/badge/DJI%20DUX%20SDK-4.11-blue.svg) ![license MIT](https://img.shields.io/badge/license-MIT-green.svg) ![Aircrafts](https://img.shields.io/badge/Aircrafts-Inspire%20%7C%20Matrice%20%7C%20Mavic%20%7C%20Phantom%20%7C%20Spark-lightgrey.svg)
 
 # EASY DJI SDK with the Hdrpano Framework
 
@@ -86,7 +86,7 @@ If you install it successfully, you should get the messages similar to the follo
 
     Analyzing dependencies
     Downloading dependencies
-    Installing Hdrpano (1.1.5)
+    Installing Hdrpano (1.1.8)
     Installing DJI-SDK-iOS (4.11)
     Installing DJI-UXSDK-iOS (4.11)
     Installing DJIWidget (1.6.1)
