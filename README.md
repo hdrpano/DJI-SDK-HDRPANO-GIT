@@ -67,6 +67,8 @@ I have added a function to reset AFC mode to simple auto exposure mode. This fun
 
 [![Watch the video](https://img.youtube.com/vi/XwM7Vq1Erjc/maxresdefault.jpg)](https://youtu.be/XwM7Vq1Erjc)
 
+[![Watch the video](https://img.youtube.com/vi/eiLDOI4NR2w/maxresdefault.jpg)](https://youtu.be/eiLDOI4NR2w)
+
 ## Installation
 **1.** Install CocoaPods
 
