@@ -32,6 +32,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ttn-Yi-cEt">
                                 <rect key="frame" x="516" y="192" width="32" height="30"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4NC-Bz-gQV"/>
+                                </constraints>
                                 <state key="normal" title="Stop">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -75,15 +78,15 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eJg-Xe-sVB" secondAttribute="trailing" constant="50" id="0WD-FH-7Gn"/>
+                            <constraint firstItem="AmI-Hv-vGS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="9Vw-Vk-rSP"/>
                             <constraint firstItem="DIM-hz-u7G" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9eC-2p-CdF"/>
                             <constraint firstItem="eJg-Xe-sVB" firstAttribute="centerY" secondItem="9ac-If-sww" secondAttribute="centerY" id="D5l-nI-Jj0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VUT-Fc-B40" secondAttribute="trailing" constant="80" id="Fec-mb-kQo"/>
+                            <constraint firstItem="AmI-Hv-vGS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="Hdp-5i-oWZ"/>
                             <constraint firstItem="eJg-Xe-sVB" firstAttribute="leading" secondItem="9ac-If-sww" secondAttribute="trailing" constant="8" id="Nq5-VW-fuP"/>
                             <constraint firstItem="Ttn-Yi-cEt" firstAttribute="leading" secondItem="DIM-hz-u7G" secondAttribute="trailing" constant="8" id="OFm-A1-LVv"/>
-                            <constraint firstItem="AmI-Hv-vGS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="W8H-Qg-aM4"/>
                             <constraint firstItem="VUT-Fc-B40" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gZ9-XY-68y"/>
                             <constraint firstItem="eJg-Xe-sVB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="oz5-mU-ooA"/>
-                            <constraint firstItem="AmI-Hv-vGS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pMf-Ro-mBl"/>
                             <constraint firstItem="DIM-hz-u7G" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rIQ-2o-WbQ"/>
                             <constraint firstItem="Ttn-Yi-cEt" firstAttribute="bottom" secondItem="DIM-hz-u7G" secondAttribute="bottom" id="tk2-Oo-CUG"/>
                         </constraints>

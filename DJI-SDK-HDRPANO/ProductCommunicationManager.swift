@@ -91,7 +91,9 @@ class ProductCommunicationManager: NSObject, DJISDKManagerDelegate, DJIFlightCon
                 Hdrpano.setMaxHeight(Height: 250)   // Set max flight height UAF, Skyguide rules
                 Hdrpano.setMaxRadius(Radius: 1000)  // Set max distance to UAF, Skyguid rules
                 Hdrpano.setLowBattery(Low: 30)      // Set low battery to 30%
+                Hdrpano.setGimbalAutoLock(enabled: true)    // Fix gimbal during shooting
                 Hdrpano.setFileFormat(fileFormat: .JPEG)    // Set file format
+                Hdrpano.setCameraMode(shootMode: .shootPhoto)   // Set video or photo shoot mode
                 Hdrpano.setShootMode(shootMode: .single)    // Set shooting mode
                 Hdrpano.setISO(ISO: .ISO100)        // Set ISO to max resolution
                 Hdrpano.setOptimumRatio()           // Set the optimum ccd ratio
