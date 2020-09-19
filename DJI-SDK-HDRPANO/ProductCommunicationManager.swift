@@ -97,6 +97,8 @@ class ProductCommunicationManager: NSObject, DJISDKManagerDelegate, DJIFlightCon
                 Hdrpano.setShootMode(shootMode: .single)    // Set shooting mode
                 Hdrpano.setISO(ISO: .ISO100)        // Set ISO to max resolution
                 Hdrpano.setOptimumRatio()           // Set the optimum ccd ratio
+                let vc = ViewController()
+                vc.updateFlyZone()
             }
         }
     }

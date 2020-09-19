@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_5" orientation="landscape" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIM-hz-u7G">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIM-hz-u7G">
                                 <rect key="frame" x="388" y="192" width="120" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -29,9 +30,9 @@
                                     <action selector="missionStartAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xKx-d0-Kqy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ttn-Yi-cEt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ttn-Yi-cEt">
                                 <rect key="frame" x="516" y="192" width="32" height="30"/>
-                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4NC-Bz-gQV"/>
                                 </constraints>
@@ -51,13 +52,11 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJg-Xe-sVB" customClass="DUXExposureFocusSwitchWidget">
-                                <rect key="frame" x="767" y="50" width="35" height="35"/>
+                                <rect key="frame" x="762" y="50" width="40" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="35" id="6ia-v2-fhp"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="VlP-xD-soJ"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="ezG-Jy-tQM"/>
-                                    <constraint firstAttribute="height" constant="35" id="ps0-P4-rGz"/>
+                                    <constraint firstAttribute="width" secondItem="eJg-Xe-sVB" secondAttribute="height" multiplier="1:1" id="kCS-Yn-jzm"/>
+                                    <constraint firstAttribute="height" constant="40" id="ps0-P4-rGz"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SDK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AmI-Hv-vGS">
@@ -67,17 +66,31 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ac-If-sww" customClass="DUXCameraConfigInfoWidget">
-                                <rect key="frame" x="544" y="52.666666666666657" width="215" height="30"/>
+                                <rect key="frame" x="539" y="50" width="215" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="1NF-L5-QRR"/>
+                                    <constraint firstAttribute="height" constant="40" id="1NF-L5-QRR"/>
                                     <constraint firstAttribute="width" constant="215" placeholder="YES" id="ng8-0r-XoT"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uDf-Hu-W3g">
+                                <rect key="frame" x="597" y="299" width="240" height="100"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.4962275256849315" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="2AB-8S-cDV"/>
+                                    <constraint firstAttribute="width" constant="240" id="RnM-aF-cLM"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="G1E-91-qPR" appends="YES" id="Val-or-dLq"/>
+                                </connections>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eJg-Xe-sVB" secondAttribute="trailing" constant="50" id="0WD-FH-7Gn"/>
+                            <constraint firstAttribute="bottom" secondItem="uDf-Hu-W3g" secondAttribute="bottom" constant="15" id="3nq-s1-SjX"/>
                             <constraint firstItem="AmI-Hv-vGS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="9Vw-Vk-rSP"/>
                             <constraint firstItem="DIM-hz-u7G" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9eC-2p-CdF"/>
                             <constraint firstItem="eJg-Xe-sVB" firstAttribute="centerY" secondItem="9ac-If-sww" secondAttribute="centerY" id="D5l-nI-Jj0"/>
@@ -85,23 +98,39 @@
                             <constraint firstItem="AmI-Hv-vGS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="Hdp-5i-oWZ"/>
                             <constraint firstItem="eJg-Xe-sVB" firstAttribute="leading" secondItem="9ac-If-sww" secondAttribute="trailing" constant="8" id="Nq5-VW-fuP"/>
                             <constraint firstItem="Ttn-Yi-cEt" firstAttribute="leading" secondItem="DIM-hz-u7G" secondAttribute="trailing" constant="8" id="OFm-A1-LVv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uDf-Hu-W3g" secondAttribute="trailing" constant="15" id="Zgb-p4-UYW"/>
                             <constraint firstItem="VUT-Fc-B40" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gZ9-XY-68y"/>
                             <constraint firstItem="eJg-Xe-sVB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="oz5-mU-ooA"/>
                             <constraint firstItem="DIM-hz-u7G" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rIQ-2o-WbQ"/>
                             <constraint firstItem="Ttn-Yi-cEt" firstAttribute="bottom" secondItem="DIM-hz-u7G" secondAttribute="bottom" id="tk2-Oo-CUG"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="customMapView" destination="uDf-Hu-W3g" id="pPg-Mc-KRl"/>
                         <outlet property="gimbalPitch" destination="VUT-Fc-B40" id="dFh-V0-XAD"/>
+                        <outlet property="mapHeight" destination="2AB-8S-cDV" id="bdb-eX-Eut"/>
+                        <outlet property="mapWidth" destination="RnM-aF-cLM" id="68M-AV-aM5"/>
                         <outlet property="missionStart" destination="DIM-hz-u7G" id="H4n-MB-r8s"/>
                         <outlet property="missionStop" destination="Ttn-Yi-cEt" id="NYa-9q-62b"/>
                         <outlet property="panoSettingsInfo" destination="AmI-Hv-vGS" id="AL4-W8-OYW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="G1E-91-qPR">
+                    <connections>
+                        <action selector="tabCustomMap:" destination="BYZ-38-t0r" id="J2p-fJ-w6p"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="138.61607142857142" y="121.73913043478262"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="viewFlipsideBackgroundColor">
+            <color red="0.1215686274509804" green="0.12941176470588239" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
